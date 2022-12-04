@@ -9,15 +9,15 @@ const routes: Routes = [
     /*children: [
       {
         path: 'profile',
-        loadChildren: () => import('../tab1/tab1.module').then(m => m.Tab1PageModule)
+        loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
       },
       {
         path: 'home',
-        loadChildren: () => import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+        loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
       },
       {
         path: 'ranking',
-        loadChildren: () => import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+        loadChildren: () => import('./ranking/ranking.module').then( m => m.RankingPageModule)
       },
       {
         path: '',
@@ -25,6 +25,18 @@ const routes: Routes = [
         pathMatch: 'full'
       }
     ]*/
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+  },
+  {
+    path: 'ranking',
+    loadChildren: () => import('./ranking/ranking.module').then( m => m.RankingPageModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
   },
   {
     path: '',
@@ -35,6 +47,8 @@ const routes: Routes = [
     path: '**',
     redirectTo: 'home'
   }
+
+
 ];
 @NgModule({
   imports: [
