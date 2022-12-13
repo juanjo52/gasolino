@@ -1,22 +1,12 @@
 <ion-app>
   <ion-router-outlet></ion-router-outlet>
 
-  <ion-tabs>
+  <ion-tabs >
 
-    <ion-tab-bar slot="bottom">
-      <ion-tab-button tab="profile">
-        <ion-icon name="person"></ion-icon>
-        <ion-label>Mi perfil</ion-label>
-      </ion-tab-button>
-
-      <ion-tab-button tab="home">
-        <ion-icon name="home"></ion-icon>
-        <ion-label>Inicio</ion-label>
-      </ion-tab-button>
-
-      <ion-tab-button tab="ranking">
-        <ion-icon name="podium"></ion-icon>
-        <ion-label>Clasificación</ion-label>
+    <ion-tab-bar color="dark" slot="bottom">
+      <ion-tab-button *ngFor="let tab of tabElements" [tab]="tab.type">
+        <ion-icon color="danger" [name]="tab.icon"></ion-icon>
+        <ion-label>{{tab.text}}</ion-label>
       </ion-tab-button>
     </ion-tab-bar>
 
