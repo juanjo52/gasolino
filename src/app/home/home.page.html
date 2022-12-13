@@ -1,8 +1,45 @@
-<ion-header>
+<!--<ion-header>
   <ion-toolbar>
     <ion-title>Inicio</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header>-->
 
-<ion-content>
+<ion-content color="dark">
+  <ion-grid>
+    <ion-row class="ion-align-items-center">
+      <ion-col size="12" class="ion-text-center">
+        <h1>Mis vehículos</h1>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-align-items-center">
+      <ion-col size="12" class="ion-text-center">
+        <p>Poner datos del consumo del usuario</p>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-align-items-center">
+      <ion-col size="12">
+        <ion-list>
+          <ion-item lines="none">
+            <ion-thumbnail slot="start">
+              <img src="../../assets/shapes.svg" alt="Imagen vehiculo">
+            </ion-thumbnail>
+            <ion-label>Vehículo 1</ion-label>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-thumbnail slot="start">
+              <img src="../../assets/shapes.svg" alt="Imagen vehiculo">
+            </ion-thumbnail>
+            <ion-label>Vehículo 2</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-align-items-center">
+      <ion-col size="12" class="ion-text-center">
+        <ion-button color="danger" [routerLink]="['/vehiculo/nuevo']">Añadir vehículo</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
