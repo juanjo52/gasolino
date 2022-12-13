@@ -2,13 +2,11 @@
   <ion-router-outlet></ion-router-outlet>
 
   <ion-tabs >
-
     <ion-tab-bar color="dark" slot="bottom">
       <ion-tab-button *ngFor="let tab of tabElements" [tab]="tab.type">
         <ion-icon color="danger" [name]="tab.icon"></ion-icon>
         <ion-label>{{tab.text}}</ion-label>
       </ion-tab-button>
     </ion-tab-bar>
-
   </ion-tabs>
 </ion-app>
