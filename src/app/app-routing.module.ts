@@ -39,6 +39,10 @@ const routes: Routes = [
     loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
   },
   {
+    path: 'vehiculo/nuevo',
+    loadChildren: () => import('./forms/new-vehicle-form/new-vehicle-form.module').then( m => m.NewVehicleFormPageModule)
+  },
+  {
     path: '',
     pathMatch: 'full',
     redirectTo: 'home',
@@ -47,6 +51,7 @@ const routes: Routes = [
     path: '**',
     redirectTo: 'home'
   }
+
 
 
 ];
