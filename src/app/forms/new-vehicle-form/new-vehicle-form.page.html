@@ -4,6 +4,37 @@
   </ion-toolbar>
 </ion-header>-->
 
-<ion-content color="dark">
+
+<ion-content [fullscreen]="true" color="dark">
+  <ion-grid>
+    <ion-row class="ion-align-items-center">
+      <ion-col size="12" class="ion-text-center">
+        <h1>Nuevo Vehículo</h1>
+      </ion-col>
+    </ion-row>
+
+    <form [formGroup]="newVehicle" (ngSubmit)="submitForm()" novalidate>
+      <ion-item color="dark">
+        <ion-label>Nombre</ion-label>
+        <ion-input formControlName="name"></ion-input>
+      </ion-item>
+      <ion-item color="dark">
+        <ion-label>Descripcion</ion-label>
+        <ion-input formControlName="description"></ion-input>
+      </ion-item>
+        <ion-item color="dark">
+          <ion-select formControlName="model" placeholder="Selecciona Modelo">
+            <ion-select-option value="Opel Corsa">Opel Corsa</ion-select-option>
+            <ion-select-option value="Citröen c3">Citröen C3</ion-select-option>
+            <ion-select-option value="Peugueot 606">Peugeot 606</ion-select-option>
+          </ion-select>
+        </ion-item>
+      <ion-row>
+        <ion-col>
+          <ion-button color="danger" type="submit" expand="block" [disabled]="!newVehicle.valid">Añadir</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
 
 </ion-content>
