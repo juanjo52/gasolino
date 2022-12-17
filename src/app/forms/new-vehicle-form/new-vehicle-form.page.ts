@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import { Observable } from 'rxjs';
+import { VehicleService } from 'src/app/services/vehicle.service';
 
 
 
@@ -10,10 +12,10 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 })
 export class NewVehicleFormPage implements OnInit {
 
-  constructor() { }
+  constructor(private vehicleSvc: VehicleService) { }
 
   ngOnInit() {
-
+    this.vehicleCreated$ = this.vehicleSvc.getVehicleCreated();
   }
 
   newVehicle = new FormGroup({
@@ -22,8 +24,12 @@ export class NewVehicleFormPage implements OnInit {
     model: new FormControl('', Validators.required)
   });
 
+
   //envio del formulario
   submitForm() {
     console.log(this.newVehicle.value);
+
+    this.vehicleCreated$.next(this.newVehicle.value); //resolver error en el next
+
   }
 }

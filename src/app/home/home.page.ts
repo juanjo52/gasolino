@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActionSheetController } from '@ionic/angular';
+import { Observable, Subscription } from 'rxjs';
+import { VehicleService } from '../services/vehicle.service';
 
 @Component({
   selector: 'app-home',
@@ -7,10 +9,21 @@ import { ActionSheetController } from '@ionic/angular';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+  newVehicleSusbscription! : Subscription;
 
-  constructor(private actSheetCtrl: ActionSheetController) { }
+  vehicleCreated$!: Observable<any>;
+
+
+  myVehicles!: any[];
+
+  constructor(private actSheetCtrl: ActionSheetController, private dataSvc: DataService) { }
 
   ngOnInit() {
+    this.getVehicles();
+  }
+
+  getVehicles(): void {
+    this.myVehicles = this.dataSvc.getMyVehicles();
   }
 
   async openActSheetOpts() {
@@ -37,3 +50,4 @@ export class HomePage implements OnInit {
     await actSheet.present();
   }
 }
+
