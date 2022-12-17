@@ -15,7 +15,6 @@ export class NewVehicleFormPage implements OnInit {
   constructor(private vehicleSvc: VehicleService) { }
 
   ngOnInit() {
-    this.vehicleCreated$ = this.vehicleSvc.getVehicleCreated();
   }
 
   newVehicle = new FormGroup({
@@ -28,8 +27,5 @@ export class NewVehicleFormPage implements OnInit {
   //envio del formulario
   submitForm() {
     console.log(this.newVehicle.value);
-
-    this.vehicleCreated$.next(this.newVehicle.value); //resolver error en el next
-
   }
 }
