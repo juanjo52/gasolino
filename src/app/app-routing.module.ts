@@ -43,6 +43,10 @@ const routes: Routes = [
     loadChildren: () => import('./forms/new-vehicle-form/new-vehicle-form.module').then( m => m.NewVehicleFormPageModule)
   },
   {
+    path: 'editar-user',
+    loadChildren: () => import('./forms/edit-profile-form/edit-profile-form.module').then( m => m.EditProfileFormPageModule)
+  },
+  {
     path: '',
     pathMatch: 'full',
     redirectTo: 'home',
@@ -51,9 +55,6 @@ const routes: Routes = [
     path: '**',
     redirectTo: 'home'
   }
-
-
-
 ];
 @NgModule({
   imports: [

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActionSheetController } from '@ionic/angular';
 import { Observable, Subscription } from 'rxjs';
+import { DataService } from '../services/data.service';
 import { VehicleService } from '../services/vehicle.service';
 
 @Component({
