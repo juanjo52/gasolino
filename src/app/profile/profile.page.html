@@ -8,33 +8,27 @@
             <ion-icon color="danger" name="pencil"></ion-icon>
           </a>
         </h1>
-
       </ion-col>
     </ion-row>
 
-
-
     <ion-row class="ion-align-items-center">
       <ion-col size="12">
-
-        <ion-img src="../../assets/shapes.svg" alt="Imagen vehiculo" style="width: 100%; height: 100%;"></ion-img>
+        <ion-img [src]="user.image || '../../assets/shapes.svg'" alt="Foto de perfil" style="width: 100%; height: 100%;"></ion-img>
       </ion-col>
     </ion-row>
 
     <ion-row class="ion-align-items-center">
       <ion-col size="12">
         <ion-item color="dark">
-          <ion-label>Nombre Usuario: @AhorroTotal</ion-label>
+          <ion-label>Nombre de usuario: @{{user.nickname}}</ion-label>
         </ion-item>
         <ion-item color="dark">
-          <ion-label>Nombre: Juanjo</ion-label>
+          <ion-label>Nombre: {{user.name}}</ion-label>
         </ion-item>
         <ion-item color="dark">
-          <ion-label>Fecha Registro: 13/12/2022</ion-label>
+          <ion-label>Fecha Registro: {{user.registerDate}}</ion-label>
         </ion-item>
-
       </ion-col>
-
     </ion-row>
   </ion-grid>
 </ion-content>

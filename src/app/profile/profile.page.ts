@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-profile',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
+  user: any;
 
-  constructor() { }
+  constructor(private dataSvc: DataService) { }
 
   ngOnInit() {
+    this.getMyProfile();
+  }
+
+  getMyProfile() {
+    this.user = this.dataSvc.getMyProfile();
   }
 
 }
