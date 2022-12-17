@@ -11,11 +11,13 @@ export class DataService {
     return [
       {
         name: 'Vehiculo 1',
+        model: 'Opel Corsa',
         consume: 5.5
       },
       {
         name: 'Vehiculo 2',
-        consume: 6.1
+        model: 'Peugeot 606',
+        consume: 6.4
       }
     ];
   }
@@ -39,5 +41,13 @@ export class DataService {
 
   getRankByConsume() {
 
+  }
+
+  getCarConsumes() {
+    return {
+      'Opel Corsa': 5.5,
+      'Citröen c3': 6.1,
+      'Peugeot 606': 6.4
+    };
   }
 }

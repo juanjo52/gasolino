@@ -27,5 +27,7 @@ export class NewVehicleFormPage implements OnInit {
   //envio del formulario
   submitForm() {
     console.log(this.newVehicle.value);
+
+    this.vehicleSvc.createVehicle(this.newVehicle.value);
   }
 }
