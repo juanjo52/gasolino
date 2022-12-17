@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActionSheetController } from '@ionic/angular';
+import { Observable, Subscription } from 'rxjs';
+import { DataService } from '../services/data.service';
+import { VehicleService } from '../services/vehicle.service';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +10,50 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+  newVehicleSusbscription! : Subscription;
+  vehicleCreated$!: Observable<any>;
 
-  constructor() { }
+  myVehicles!: any[];
+
+  constructor(private actSheetCtrl: ActionSheetController, private dataSvc: DataService, private vehicleSvc: VehicleService) { }
 
   ngOnInit() {
+    this.getVehicles();
+
+    this.vehicleCreated$ = this.vehicleSvc.getVehicleCreated();
+    this.newVehicleSusbscription = this.vehicleCreated$.subscribe(
+      resp => {
+        this.myVehicles.push(resp);
+      }
+    );
   }
 
+  getVehicles(): void {
+    this.myVehicles = this.dataSvc.getMyVehicles();
+  }
+
+  async openActSheetOpts() {
+    const actSheet = await this.actSheetCtrl.create({
+      header: 'Opciones',
+      buttons: [
+        {
+          text: 'Borrar',
+          role: 'delete',
+          data: {
+            action: 'remove'
+          }
+        },
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          data: {
+            action: 'cancel'
+          }
+        }
+      ]
+    });
+
+    await actSheet.present();
+  }
 }
+
