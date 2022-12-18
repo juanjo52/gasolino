@@ -48,7 +48,13 @@ export class DataService {
     return {
       'Opel Corsa': 5.5,
       'Citröen c3': 6.1,
-      'Peugeot 606': 6.4
+      'Peugeot 606': 6.4,
+      'Ford Focus': 4.6,
+      'Volkswagen Polo': 6.7,
+      'Seat Arona': 6.8,
+      'Dacia Sandero': 7.1,
+      'Mercedes AMG Clase A': 7.6,
+      'BMW X5 M': 7.9
     };
   }
 }

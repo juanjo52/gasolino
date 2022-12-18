@@ -1,9 +1,3 @@
-<!--<ion-header>
-  <ion-toolbar>
-    <ion-title>Clasificación</ion-title>
-  </ion-toolbar>
-</ion-header>-->
-
 <ion-content color="dark">
   <ion-grid>
     <ion-row class="ion-align-items-center">
@@ -19,7 +13,7 @@
     </ion-row>
 
     <ion-row>
-      <ion-segment color="danger" value="marca">
+      <ion-segment color="danger" value="marca" (ionChange)="segmentChanged($event)">
         <ion-segment-button value="marca">
           <ion-label>Marca</ion-label>
         </ion-segment-button>
@@ -29,8 +23,8 @@
       </ion-segment>
     </ion-row>
 
-    <ion-list>
-      <ion-item *ngFor="let user of ranking; let index = index">
+    <ion-list *ngIf="segmentValue === 'consumo'">
+      <ion-item *ngFor="let user of ranking let index = index">
         <ion-col size="3">
           <img width="45px" *ngIf="(index+1) === 1" src="../../assets/medals/oro.png" alt="Medalla posicion 1">
           <img width="45px" *ngIf="(index+1) === 2" src="../../assets/medals/plata.png" alt="Medalla posicion 2">
@@ -41,6 +35,25 @@
 
         <ion-col size="9">
           <ion-label>{{user.nombre}}</ion-label>
+          <ion-label *ngIf="user.consumo > 6" color="danger">{{user.consumo}} l / 100km</ion-label>
+          <ion-label *ngIf="user.consumo < 6" color="success">{{user.consumo}}l / 100km</ion-label>
+
+
+        </ion-col>
+      </ion-item>
+    </ion-list>
+    <ion-list *ngIf="segmentValue === 'marca'">
+      <ion-item *ngFor="let brand of rankingBrand; let index = index">
+        <ion-col size="3">
+          <img width="45px" *ngIf="(index+1) === 1" src="../../assets/medals/oro.png" alt="Medalla posicion 1">
+          <img width="45px" *ngIf="(index+1) === 2" src="../../assets/medals/plata.png" alt="Medalla posicion 2">
+          <img width="45px" *ngIf="(index+1) === 3" src="../../assets/medals/bronce.png" alt="Medalla posicion 3">
+
+          <ion-label style="font-size: 25px; padding-left: 15px;" *ngIf="(index+1) > 3">{{ index+1 }}</ion-label>
+        </ion-col>
+
+        <ion-col size="9">
+          <ion-label>{{brand.nombre}}</ion-label>
         </ion-col>
       </ion-item>
     </ion-list>
