@@ -21,19 +21,7 @@
     <ion-row class="ion-align-items-center">
       <ion-col size="12">
         <ion-list>
-          <ion-item *ngFor="let vehicle of myVehicles" lines="none">
-            <ion-thumbnail slot="start">
-              <img src="../../assets/shapes.svg" alt="Imagen vehiculo">
-            </ion-thumbnail>
-            <ion-label>
-              {{vehicle.name}}
-              <h6>{{vehicle.consume}} l/100km</h6>
-            </ion-label>
-
-            <ion-button fill="clear" (click)="openActSheetOpts()">
-              <ion-icon style="font-size: 20px;" name="ellipsis-vertical"></ion-icon>
-            </ion-button>
-          </ion-item>
+          <app-vehicle-card *ngFor="let vehicle of myVehicles" [vehicle]="vehicle"></app-vehicle-card>
         </ion-list>
       </ion-col>
     </ion-row>

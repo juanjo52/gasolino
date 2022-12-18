@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import { Observable } from 'rxjs';
+import { Vehicle } from 'src/app/interfaces/Vehicle';
 import { VehicleService } from 'src/app/services/vehicle.service';
 
 
@@ -26,8 +26,6 @@ export class NewVehicleFormPage implements OnInit {
 
   //envio del formulario
   submitForm() {
-    console.log(this.newVehicle.value);
-
-    this.vehicleSvc.createVehicle(this.newVehicle.value);
+    this.vehicleSvc.createVehicle(this.newVehicle.value as Vehicle);
   }
 }

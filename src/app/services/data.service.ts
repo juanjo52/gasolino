@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Vehicle } from '../interfaces/Vehicle';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,7 @@ export class DataService {
 
   constructor() { }
 
-  getMyVehicles(): any[] {
+  getMyVehicles(): Vehicle[] {
     return [
       {
         name: 'Vehiculo 1',

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActionSheetController } from '@ionic/angular';
 import { Observable, Subscription } from 'rxjs';
+import { Vehicle } from '../interfaces/Vehicle';
 import { DataService } from '../services/data.service';
 import { VehicleService } from '../services/vehicle.service';
 
@@ -10,20 +10,27 @@ import { VehicleService } from '../services/vehicle.service';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-  newVehicleSusbscription! : Subscription;
-  vehicleCreated$!: Observable<any>;
+  newVehicleSubscription! : Subscription;
+  vehicleCreated$!: Observable<Vehicle>;
+  vehicleDeleted$!: Observable<string>;
 
-  myVehicles!: any[];
+  myVehicles!: Vehicle[];
 
-  constructor(private actSheetCtrl: ActionSheetController, private dataSvc: DataService, private vehicleSvc: VehicleService) { }
+  constructor(private dataSvc: DataService, private vehicleSvc: VehicleService) { }
 
   ngOnInit() {
     this.getVehicles();
 
     this.vehicleCreated$ = this.vehicleSvc.getVehicleCreated();
-    this.newVehicleSusbscription = this.vehicleCreated$.subscribe(
+    this.vehicleDeleted$ = this.vehicleSvc.getVehicleDeleted();
+    this.newVehicleSubscription = this.vehicleCreated$.subscribe(
       resp => {
         this.myVehicles.push(resp);
+      }
+    );
+    this.vehicleDeleted$.subscribe(
+      name => {
+        this.myVehicles = this.myVehicles.filter(v => name != v.name);
       }
     );
   }
@@ -32,28 +39,8 @@ export class HomePage implements OnInit {
     this.myVehicles = this.dataSvc.getMyVehicles();
   }
 
-  async openActSheetOpts() {
-    const actSheet = await this.actSheetCtrl.create({
-      header: 'Opciones',
-      buttons: [
-        {
-          text: 'Borrar',
-          role: 'delete',
-          data: {
-            action: 'remove'
-          }
-        },
-        {
-          text: 'Cancelar',
-          role: 'cancel',
-          data: {
-            action: 'cancel'
-          }
-        }
-      ]
-    });
-
-    await actSheet.present();
+  borrarVehiculo(name: string) {
+    this.vehicleSvc.deleteVehicle(name);
   }
 }
 

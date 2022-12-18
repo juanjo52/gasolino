@@ -1,0 +1,13 @@
+<ion-item lines="none">
+  <ion-thumbnail slot="start">
+    <img [src]="vehicle.image || '../../assets/shapes.svg'" alt="Imagen vehiculo">
+  </ion-thumbnail>
+  <ion-label>
+    {{vehicle.name}}
+    <h6>{{vehicle.consume}} l/100km</h6>
+  </ion-label>
+
+  <ion-button fill="clear" (click)="openActSheetOpts()">
+    <ion-icon color="dark" style="font-size: 20px;" name="ellipsis-vertical"></ion-icon>
+  </ion-button>
+</ion-item>
