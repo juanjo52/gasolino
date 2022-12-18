@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
+import {Router} from '@angular/router'
 
 @Component({
   selector: 'app-profile',
@@ -9,7 +10,8 @@ import { DataService } from '../services/data.service';
 export class ProfilePage implements OnInit {
   user: any;
 
-  constructor(private dataSvc: DataService) { }
+  constructor(private dataSvc: DataService, public router: Router) {
+  }
 
   ngOnInit() {
     this.getMyProfile();
@@ -17,6 +19,10 @@ export class ProfilePage implements OnInit {
 
   getMyProfile() {
     this.user = this.dataSvc.getMyProfile();
+  }
+
+  editProfile(){
+    this.router.navigateByUrl('/editar-user');
   }
 
 }

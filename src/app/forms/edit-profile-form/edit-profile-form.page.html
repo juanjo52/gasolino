@@ -1,9 +1,32 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-title>edit-profile-form</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
-<ion-content>
+<ion-content [fullscreen]="true" color="dark">
+  <ion-grid>
+    <ion-row class="ion-align-items-center">
+      <ion-col size="12" class="ion-text-center">
+        <h1>Editar Datos</h1>
+      </ion-col>
+    </ion-row>
+
+    <form [formGroup]="newUserData" (ngSubmit)="submitForm()" novalidate>
+      <ion-item color="dark">
+        <ion-label>Username</ion-label>
+        <ion-input formControlName="username"></ion-input>
+      </ion-item>
+      <ion-item color="dark">
+        <ion-label>Descripcion</ion-label>
+        <ion-input formControlName="description"></ion-input>
+      </ion-item>
+      <ion-row>
+        <ion-col>
+          <ion-button color="danger" type="submit" expand="block" [disabled]="!newUserData.valid">Añadir</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
 
 </ion-content>
