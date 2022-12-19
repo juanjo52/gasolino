@@ -57,6 +57,10 @@ export class DataService {
         consumo: this.getCarConsumes()['Ford Focus']
       },
       {
+        nombre: "Alejandro",
+        consumo: this.getCarConsumes()['Opel Corsa']
+      },
+      {
         nombre: "Juanjo",
         consumo: this.getCarConsumes()['Citröen c3']
       },
@@ -65,8 +69,12 @@ export class DataService {
         consumo: this.getCarConsumes()['Peugeot 606']
       },
       {
-        nombre: "Alejandro",
-        consumo: this.getCarConsumes()['Opel Corsa']
+        nombre: "Julián",
+        consumo: this.getCarConsumes()['Volkswagen Polo']
+      },
+      {
+        nombre: "Raúl",
+        consumo: this.getCarConsumes()['Seat Arona']
       },
       {
         nombre: "Pedro",
@@ -77,16 +85,8 @@ export class DataService {
         consumo: this.getCarConsumes()['Mercedes AMG Clase A']
       },
       {
-        nombre: "Julián",
-        consumo: this.getCarConsumes()['Volkswagen Polo']
-      },
-      {
         nombre: "Rodrigo",
         consumo: this.getCarConsumes()['BMW X5 M']
-      },
-      {
-        nombre: "Raúl",
-        consumo: this.getCarConsumes()['Seat Arona']
       }
     ];
   }
