@@ -31,6 +31,10 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
+    path: 'car/me/details/:name',
+    loadChildren: () => import('./vehicle-details/vehicle-details.module').then( m => m.VehicleDetailsPageModule)
+  },
+  {
     path: 'ranking',
     loadChildren: () => import('./ranking/ranking.module').then( m => m.RankingPageModule)
   },
@@ -55,6 +59,7 @@ const routes: Routes = [
     path: '**',
     redirectTo: 'home'
   }
+
 ];
 @NgModule({
   imports: [

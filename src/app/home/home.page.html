@@ -14,13 +14,13 @@
 
     <ion-row class="ion-align-items-center">
       <ion-col size="12" class="ion-text-center">
-        <p>Poner datos del consumo del usuario</p>
+        <app-weekly-consume></app-weekly-consume>
       </ion-col>
     </ion-row>
 
     <ion-row class="ion-align-items-center">
       <ion-col size="12">
-        <ion-list>
+        <ion-list class="border">
           <app-vehicle-card *ngFor="let vehicle of myVehicles" [vehicle]="vehicle"></app-vehicle-card>
         </ion-list>
       </ion-col>

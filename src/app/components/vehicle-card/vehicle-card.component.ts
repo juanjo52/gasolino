@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActionSheetController } from '@ionic/angular';
 import { Vehicle } from 'src/app/interfaces/Vehicle';
+import { DataCommunicatingService } from 'src/app/services/data-communicating.service';
 import { VehicleService } from 'src/app/services/vehicle.service';
 
 @Component({
@@ -12,12 +13,13 @@ import { VehicleService } from 'src/app/services/vehicle.service';
 export class VehicleCardComponent implements OnInit {
   @Input() vehicle!: Vehicle;
 
-  constructor(private actSheetCtrl: ActionSheetController, private router: Router, private vehicleSvc: VehicleService) { }
+  constructor(private actSheetCtrl: ActionSheetController, private router: Router, private vehicleSvc: VehicleService, private dataComSvc: DataCommunicatingService) { }
 
   ngOnInit() {}
 
   goToDetailsPage() {
     this.router.navigate(['car/me/details/', this.vehicle.name]);
+    this.dataComSvc.setVehicleDetails(this.vehicle);
   }
 
   async openActSheetOpts() {

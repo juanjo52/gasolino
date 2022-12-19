@@ -8,17 +8,17 @@
   <ion-grid>
     <ion-row class="ion-align-items-center">
       <ion-col size="12" class="ion-text-center">
-        <h1>Editar Datos</h1>
+        <h1>Editar datos</h1>
       </ion-col>
     </ion-row>
 
     <form [formGroup]="newUserData" (ngSubmit)="submitForm()" novalidate>
       <ion-item color="dark">
-        <ion-label>Username</ion-label>
+        <ion-label>Usuario</ion-label>
         <ion-input formControlName="username"></ion-input>
       </ion-item>
       <ion-item color="dark">
-        <ion-label>Descripcion</ion-label>
+        <ion-label>Descripción</ion-label>
         <ion-input formControlName="description"></ion-input>
       </ion-item>
       <ion-row>
