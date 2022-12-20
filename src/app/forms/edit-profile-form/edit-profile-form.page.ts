@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-edit-profile-form',
@@ -7,10 +8,12 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./edit-profile-form.page.scss'],
 })
 export class EditProfileFormPage implements OnInit {
+  user: any;
 
-  constructor() { }
+  constructor(private userSvc: UserService) { }
 
   ngOnInit() {
+    this.user = this.userSvc.getUserData();
   }
 
   newUserData = new FormGroup({
@@ -21,7 +24,7 @@ export class EditProfileFormPage implements OnInit {
 
   //envio del formulario
   submitForm() {
-    console.log(this.newUserData.value);
+    this.userSvc.editUser(this.newUserData.value);
   }
 
 }

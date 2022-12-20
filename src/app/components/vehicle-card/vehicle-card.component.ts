@@ -4,6 +4,7 @@ import { ActionSheetController } from '@ionic/angular';
 import { Vehicle } from 'src/app/interfaces/Vehicle';
 import { DataCommunicatingService } from 'src/app/services/data-communicating.service';
 import { VehicleService } from 'src/app/services/vehicle.service';
+import { ConfirmAlertComponent } from '../confirm-alert/confirm-alert.component';
 
 @Component({
   selector: 'app-vehicle-card',
@@ -13,7 +14,7 @@ import { VehicleService } from 'src/app/services/vehicle.service';
 export class VehicleCardComponent implements OnInit {
   @Input() vehicle!: Vehicle;
 
-  constructor(private actSheetCtrl: ActionSheetController, private router: Router, private vehicleSvc: VehicleService, private dataComSvc: DataCommunicatingService) { }
+  constructor(private actSheetCtrl: ActionSheetController, private router: Router, private vehicleSvc: VehicleService, private dataComSvc: DataCommunicatingService, private confirmAlert: ConfirmAlertComponent) { }
 
   ngOnInit() {}
 
@@ -36,8 +37,8 @@ export class VehicleCardComponent implements OnInit {
         {
           text: 'Borrar',
           role: 'delete',
-          handler: () => {
-            this.vehicleSvc.deleteVehicle(this.vehicle.name);
+          handler: async () => {
+            await this.confirmAlert.createConfirmAlert(`¿Estás seguro de que quieres eliminar <b>${this.vehicle.name}</b>?`, this.vehicle.name);
           }
         },
         {

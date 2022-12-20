@@ -34,7 +34,6 @@ export class VehicleService {
 
   deleteVehicle(uniqueName: string) {
     if (uniqueName) {
-      console.log(uniqueName);
       this.vehicleDeleted$.next(uniqueName);
       this.router.navigate(['/home']);
     }

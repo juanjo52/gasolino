@@ -13,13 +13,13 @@ export class DataService {
   getMyVehicles(): Vehicle[] {
     return [
       {
-        name: 'Vehiculo 1',
+        name: 'Vehículo de Juanjo',
         model: 'Opel Corsa',
         consume: 5.5,
         image: this.imgsUrl+'opel-corsa.jpg'
       },
       {
-        name: 'Vehiculo 2',
+        name: 'Vehículo de Ana',
         model: 'Peugeot 606',
         consume: 6.4,
         image: this.imgsUrl+'peugeot-606.JPG'
@@ -51,6 +51,7 @@ export class DataService {
   }
 
   getRankByConsume() {
+
     return [
       {
         nombre: "Fernando",
