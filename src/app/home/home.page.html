@@ -19,10 +19,11 @@
     </ion-row>
 
     <ion-row class="ion-align-items-center">
-      <ion-col size="12">
-        <ion-list class="border">
+      <ion-col class="ion-text-center" size="12">
+        <ion-list *ngIf="myVehicles.length > 0" class="border">
           <app-vehicle-card *ngFor="let vehicle of myVehicles" [vehicle]="vehicle"></app-vehicle-card>
         </ion-list>
+        <h3 *ngIf="myVehicles.length === 0">No tienes vehículos</h3>
       </ion-col>
     </ion-row>
     <ion-row class="ion-align-items-center">

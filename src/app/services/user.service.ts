@@ -24,7 +24,6 @@ export class UserService {
   }
 
   editUser(user: any) {
-    console.warn(user);
     this.setUserData(user);
     this.router.navigate(['/home']);
     this.actionToast.createToast('Usuario editado correctamente', 2000, 'tertiary');

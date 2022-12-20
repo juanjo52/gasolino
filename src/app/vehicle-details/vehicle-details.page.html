@@ -1,9 +1,28 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>{{ vehicle.name }}</ion-title>
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+      <h3 class="text-fix">Info</h3>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content color="dark">
+  <ion-row>
+    <ion-col size="12">
+      <ion-card>
+        <img [src]="vehicle.image || '../assets/car-imgs/default.jpg'" alt="Imagen de vehiculo">
+        <ion-card-header>
+          <ion-card-title>{{vehicle.name}}</ion-card-title>
+        </ion-card-header>
 
+        <ion-card-content>
+          {{vehicle.description || "Sin descripción"}}
+          <ion-label>
+            <h2><b>Consumo: {{vehicle.consume}} litros/100km</b></h2>
+          </ion-label>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
 </ion-content>
